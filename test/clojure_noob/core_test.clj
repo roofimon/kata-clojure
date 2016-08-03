@@ -1,12 +1,20 @@
 (ns clojure-noob.core-test
   (:require [clojure.test :refer :all] [clojure-noob.core :refer :all]))
 
+(defn isModulus3
+  [number]
+    (mod number 3))
+
+(defn isModulus5
+  [number]
+    (mod number 5))
+
 (defn fizzbuzz
   [number]
     (cond
-      (and (zero? (mod number 3)) (zero? (mod number 5))) "fizzbuzz"
-      (zero? (mod number 3)) "fizz"
-      (zero? (mod number 5)) "buzz"
+      (and (zero? (isModulus3 number)) (zero? (isModulus5 number))) "fizzbuzz"
+      (zero? (isModulus3 number)) "fizz"
+      (zero? (isModulus5 number)) "buzz"
       :else (str number)))
 
 (deftest cuount-1-should-be-1
